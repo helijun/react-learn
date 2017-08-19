@@ -268,7 +268,7 @@ $group-header-font-size: $font-size-sm !default;
 // -----------------------------------------------------------------------------
 // font list: (font-family, font-weight, font-style, src)
 $icon-prefix: #{$namespace}icon !default;
-$ratchicons-path: '../fonts/' !default;
+$ratchicons-path: '/fonts/' !default;
 $icon-fonts: (
   Ratchicons: (
     weight: normal,
