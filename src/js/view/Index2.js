@@ -14,7 +14,7 @@ class App extends React.Component {
         return(
             <Container>
                 <Group
-                    header="形状镂空2"
+                    header="形状镂空1"
                 >
                 <Card
                     header="Card header"
