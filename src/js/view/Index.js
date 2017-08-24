@@ -1,5 +1,6 @@
 import React from 'react';
-
+import IndexAction from '../action/Index.js';
+import IndexStore from '../store/Index.js';
 import '../../scss/view/Index.scss';
 
 import Container from '../../plugin/amazeui-touch/lib/Container';
@@ -9,12 +10,33 @@ import Group from '../../plugin/amazeui-touch/lib/Group';
 import Button from '../../plugin/amazeui-touch/lib/Button';
 
 class App extends React.Component {
+    constructor(){
+        super();
+        this.state = {
+            data: {
+                phone: '18778917540'
+            }
+        };
+    }
+
+    updatePhone(){
+        IndexAction.updatePhone();
+    }
+
+    componentDidMount(){
+        IndexStore.bind("change",function(){
+            console.log('触发change')
+            this.setState({
+                data: IndexStore.getAll()
+            })
+        }.bind(this));
+    }
 
     render() {
         return(
             <Container>
                 <Group
-                    header="形状镂空2"
+                    header={this.state.data.phone}
                 >
                 <Card
                     header="Card header"
@@ -26,7 +48,7 @@ class App extends React.Component {
                 <Group
                     header="形状镂空3"
                 >
-                    <Button block hollow>Default</Button>
+                    <Button block hollow onClick={this.updatePhone}>Default</Button>
                     <Button hollow amStyle="primary">Primary</Button>
                     <Button hollow amStyle="secondary">Secondary</Button>
                     <Button hollow amStyle="success">Success</Button>
