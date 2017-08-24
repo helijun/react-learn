@@ -18,3 +18,6 @@ npm start
 
 > 2017-08-20
 1. 添加react-router，版本2.4.1
+
+> 2017-08-24
+1. 集成flux，Index组件点击 Default Buttom 改变第一个Group标题（手机号码）
