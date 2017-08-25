@@ -21,3 +21,9 @@ npm start
 
 > 2017-08-24
 1. 集成flux，Index组件点击 Default Buttom 改变第一个Group标题（手机号码）
+
+> 2017-08-25
+使用nginx实现跨域，本机ip 192.168.1.168
+cd  /nginx  
+start nginx.exe
+测试： Index组件点击 Default Buttom，触发ajax请求，代理到http://192.168.1.239:8080
