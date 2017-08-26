@@ -28,3 +28,7 @@ npm start
 cd  /nginx  </br>
 start nginx.exe
 2. 测试： Index组件点击 Default Buttom，触发ajax请求，代理到http://192.168.1.239:8080
+
+> 2017-08-26
+1. 添加了以前自己封装的LIUI，后续将在LIUI上继续添加更多项目开发中常用的方法
+2. 使用li-ajax
