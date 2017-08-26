@@ -1,6 +1,7 @@
 const Event = require('../../util/Event.js');
-const ajax = require('../../util/Ajax.js');
 const appDispatcher = require('../dispatcher/dispatcher.js');
+
+import LI from '../../plugin/li/li-1.0.0.js';
 
 const IndexStore = {
 	_state: {
@@ -21,16 +22,18 @@ Event.mixin(IndexStore);
 appDispatcher.register(function(payload){
 	switch(payload.actionName){
 		case 'update_phone': 
-			console.log('this',this);
-
-			ajax({
-                ciUrl:"/nt239/ci/platinfo/v2/financePlan",
-                success(rs){
-                    if(rs.code === 0){
-                        console.log(rs)
+            console.log('this',this);
+            console.log('LI',LI);
+            
+            LI.ajax({
+                url: "/api/app/banner-list",
+                success: function(data) {
+                    if(typeof data == 'string'){
+                        data = JSON.parse(data)
                     }
-                }
-            });
+                    console.log('success',data)
+                } 
+            })
 
 			IndexStore.updateAll({
                 phone: '17603001616'
