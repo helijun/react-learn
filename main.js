@@ -9,6 +9,8 @@ import {
 } from 'react-router';
 import Index from './src/js/view/Index';
 import Index2 from './src/js/view/Index2';
+import Shop from './src/js/view/danong/Shop';
+import Shop2 from './src/js/danong/shop';
 
 import './src/plugin/amazeui-touch/scss/amazeui.touch.scss';
 
@@ -20,6 +22,8 @@ const handleOnEnter = function(){
 ReactDOM.render(
     <Router history={hashHistory}>
         <Route path="/" component={Index}/>
+        <Route path="/shop" component={Shop}/>
+        <Route path="/shop2" component={Shop2}/>
         <Route path="/index" component={Index2} onEnter={handleOnEnter}/>
     </Router>
     , document.getElementById('root'));
