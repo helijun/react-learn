@@ -1,12 +1,12 @@
-const Event = require('../../util/Event.js');
-const appDispatcher = require('../dispatcher/dispatcher.js');
-
+import Event from '../../util/Event.js';
+import appDispatcher from '../dispatcher/dispatcher.js';
 import LI from '../../plugin/li/li-1.0.0.js';
 
-const IndexStore = {
+const ShopStore = {
 	_state: {
-        shopTitle: '产品列表',
+        shopTitle: '特惠产品',
         bannerList: [],
+        productList: [],
         WillMount: true,        
 		phone: '188'
 	},
@@ -20,7 +20,7 @@ const IndexStore = {
         this._state = {};
     }
 };
-Event.mixin(IndexStore);
+Event.mixin(ShopStore);
 
 appDispatcher.register(function(payload){
 	switch(payload.actionName){
@@ -32,13 +32,29 @@ appDispatcher.register(function(payload){
                         data = JSON.parse(data)
                     }
                     
-                    IndexStore.updateAll({
+                    ShopStore.updateAll({
                         bannerList: data.detail
                     });
-                    IndexStore.trigger("change");
+                    ShopStore.trigger("change");
                 } 
             })
-			break;
+            break;
+        case 'product-list': 
+            LI.ajax({
+                url: "/api/insurance/get-insurance-list",
+                success: function(data) {
+                    if(typeof data == 'string'){
+                        data = JSON.parse(data)
+                    }
+                    
+                    ShopStore.updateAll({
+                        productList: data.detail
+                    });
+                    ShopStore.trigger("change");
+                } 
+            })
+            break;    
+            
 	}
 })
-module.exports = IndexStore;
+export default ShopStore;

@@ -13,6 +13,7 @@ import Shop from './src/js/view/danong/Shop';
 import Shop2 from './src/js/danong/shop';
 
 import './src/plugin/amazeui-touch/scss/amazeui.touch.scss';
+import './src/plugin/li/li-1.2.0.scss';
 
 //可做页面权限拦截
 const handleOnEnter = function(){

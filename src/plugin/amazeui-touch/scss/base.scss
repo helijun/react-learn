@@ -14,16 +14,16 @@
 // @see http://blog.christoffer.me/post/2015-06-10-six-things-i-learnt-about-ios-rubberband-overflow-scrolling/#.VkL9ra4rL4M
 // @see https://github.com/luster-io/prevent-overscroll
 // @see http://browser.colla.me/show/disable_elastic_scroll_on_iOS_safari
-html,
 body {
   height: 100%;
-  overflow: hidden;
+  overflow: auto;
   font-size: $base-font-size;
 }
 
 // Set box-sizing globally to handle padding and border widths
 html {
   box-sizing: border-box;
+  display: block;
 }
 
 *,

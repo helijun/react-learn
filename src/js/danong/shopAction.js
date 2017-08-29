@@ -1,11 +1,16 @@
-const appDispatcher = require("../dispatcher/dispatcher.js");
+import appDispatcher from '../dispatcher/dispatcher.js';
 
-const IndexAction = {
+const ShopAction = {
 	bannerList() {
 		appDispatcher.dispatch({
             actionName: "banner-list"
         })
+	},
+	productList() {
+		appDispatcher.dispatch({
+			actionName: 'product-list'
+		})
 	}
 }
 
-module.exports = IndexAction;
+export default ShopAction;
