@@ -1,22 +1,22 @@
 import React from 'react';
+import { Link } from 'react-router';
+
 import ShopAction from './shopAction';
 import ShopStore from './shopStore';
-import {
-    Link
-} from 'react-router';
 import './shop.scss';
+import {
+    Container,
+    Notification,
+    List,
+    Card,
+    Grid,
+    Col,
+    Group,
+    Button,
+    Slider
+}  from '../../config';
 
-import Container from '../../plugin/amazeui-touch/lib/Container';
-import Notification from '../../plugin/amazeui-touch/lib/Notification';
-import List from '../../plugin/amazeui-touch/lib/List';
-import Card from '../../plugin/amazeui-touch/lib/Card';
-import Grid from '../../plugin/amazeui-touch/lib/Grid';
-import Col from '../../plugin/amazeui-touch/lib/Col';
-import Group from '../../plugin/amazeui-touch/lib/Group';
-import Button from '../../plugin/amazeui-touch/lib/Button';
-import Slider from '../../plugin/amazeui-touch/lib/Slider';
-
-class App extends React.Component {
+class Shop extends React.Component {
     constructor(){
         super();
         this.state = {
@@ -116,4 +116,4 @@ class App extends React.Component {
     }
 }
 
-export default App
+export default Shop

@@ -1,6 +1,8 @@
-import Event from '../../util/Event.js';
-import appDispatcher from '../dispatcher/dispatcher.js';
-import LI from '../../plugin/li/li-1.0.0.js';
+import {
+    Event,
+    appDispatcher,
+    LI
+}  from '../../config';
 
 const ShopStore = {
 	_state: {
@@ -39,7 +41,7 @@ appDispatcher.register(function(payload){
                 } 
             })
             break;
-        case 'product-list': 
+        case 'product-list':
             LI.ajax({
                 url: "/api/insurance/get-insurance-list",
                 success: function(data) {

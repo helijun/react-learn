@@ -1,14 +1,14 @@
-import appDispatcher from '../dispatcher/dispatcher.js';
+import appDispatcher from '../../dispatcher/dispatcher.js';
 
 const ShopAction = {
 	bannerList() {
 		appDispatcher.dispatch({
-            actionName: "banner-list"
+            actionName: "banner-list-v2"
         })
 	},
 	productList() {
 		appDispatcher.dispatch({
-			actionName: 'product-list'
+			actionName: 'product-list-v2'
 		})
 	}
 }

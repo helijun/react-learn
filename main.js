@@ -7,24 +7,41 @@ import {
     hashHistory,
     IndexRoute,
 } from 'react-router';
-import Index from './src/js/view/Index';
-import Index2 from './src/js/view/Index2';
-import Shop from './src/js/view/danong/Shop';
-import Shop2 from './src/js/danong/shop';
+import * as Pages from './src/js/router.config';
 
 import './src/plugin/amazeui-touch/scss/amazeui.touch.scss';
 import './src/plugin/li/li-1.2.0.scss';
 
+
+let {
+    NotFound,
+    ...Components
+} = Pages;
+
 //可做页面权限拦截
 const handleOnEnter = function(){
-    console.log('user see index')
+    console.log('all of the views',Components)
 }
 
-ReactDOM.render(
-    <Router history={hashHistory}>
-        <Route path="/" component={Index}/>
-        <Route path="/shop" component={Shop}/>
-        <Route path="/shop2" component={Shop2}/>
-        <Route path="/index" component={Index2} onEnter={handleOnEnter}/>
-    </Router>
-    , document.getElementById('root'));
+const Page = React.createClass({
+    render() {
+        let componentName = this.props.params.componentName;
+        if(componentName){
+            componentName = componentName.charAt(0).toUpperCase() + componentName.slice(1);
+        }
+        let Component = Components[componentName] || NotFound;
+        console.log('this.props',this.props)
+        return (
+            <Component scrollable history={this.props.history} location={this.props.location}/>
+        )
+    }
+})
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    ReactDOM.render(
+        <Router history={hashHistory}>
+            <Route path=":componentName" component={Page} onEnter={handleOnEnter}/>
+        </Router>
+        , document.getElementById('root'));
+})
