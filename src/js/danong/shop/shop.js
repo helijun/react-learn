@@ -14,7 +14,7 @@ import {
     Group,
     Button,
     Slider
-}  from '../../config';
+}  from '../../common.config';
 
 class Shop extends React.Component {
     constructor(){
@@ -68,7 +68,7 @@ class Shop extends React.Component {
                             </Link>    
                         </Col>
                         <Col className='li-align-center'>
-                            <Link>
+                            <Link to={'/usercenter'}>
                                 <i className="icon-gerenzhongxin1"></i>
                                 <p className='li-text-normal'>个人中心</p>
                             </Link>
@@ -104,8 +104,8 @@ class Shop extends React.Component {
     }
 
     componentDidMount() {
-        ShopAction.bannerList();
-        ShopAction.productList();
+        ShopAction.getBannerList();
+        ShopAction.getProductList();
 
         ShopStore.bind("change",function(){
             this.setState({
@@ -113,6 +113,10 @@ class Shop extends React.Component {
             })
             console.log('触发change',this.state)
         }.bind(this));
+    }
+
+    componentWillUnmount() {
+        
     }
 }
 

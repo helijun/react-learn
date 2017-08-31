@@ -116,6 +116,14 @@
         return results;
     }
 
+    li.screenWidth = function(){
+        return window.innerWidth
+    }
+
+    li.screenHeight = function(){
+        return window.innerHeight
+    }
+
     li.ajax = function(opts){
         var defaultOpts = {
             url: '', //ajax 请求地址

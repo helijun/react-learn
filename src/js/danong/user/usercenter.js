@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-import ShopAction from './usercenterAction';
-import ShopStore from './usercenterStore';
+import UserCenterAction from './usercenterAction';
+import UserCenterStore from './usercenterStore';
 import './usercenter.scss';
 import {
     Container,
@@ -14,13 +14,13 @@ import {
     Group,
     Button,
     Slider
-}  from '../../config';
+}  from '../../common.config';
 
 class App extends React.Component {
     constructor(){
         super();
         this.state = {
-            data: {}
+            data: UserCenterStore.getAll()
         };
     }
 
@@ -29,85 +29,42 @@ class App extends React.Component {
     }
 
     render() {
-        console.log('render this.state', this.state)
-        let { 
-            bannerList,
-            productList,
-            shopTitle
-        } = this.state.data;
+        let data = this.state.data;
+        let avaterHeight = 393*data.width/850;
+        console.log('avaterHeight',avaterHeight)
         return(
             <Container 
                 scrollable={true} 
-                className="component-shop"
+                className='component-usercenter'
             >
-                <Slider 
-                    className='m-slider'
-                    controls={false}
-                    onAction={this.onAction}
-                >
-                    {
-                        bannerList && bannerList.map((v, i) => {
-                            return (
-                                <Slider.Item key= {i} >
-                                    <img
-                                        id={'slider' + i}
-                                        src={ '//static.sztoda.com/' + v.imgLarge} />
-                                </Slider.Item>
-                            )
-                        })
-                    }
-                </Slider>
-                <Group>
-                    <Grid 
-                        align='around'
-                    >
-                        <Col className='li-align-center'>
-                            <Link href={'/api/carInsurance/index?productId=1'}>
-                                <i className='icon-che'></i>
-                                <p className='li-text-normal'>车险询价</p>
-                            </Link>    
-                        </Col>
-                        <Col className='li-align-center'>
-                            <Link>
-                                <i className="icon-gerenzhongxin1"></i>
-                                <p className='li-text-normal'>个人中心</p>
-                            </Link>
-                        </Col>
-                    </Grid>
-                </Group>
-                <Group
-                    className='m-pro'
-                    header={shopTitle || '产品列表'}
-                >
-                    <List>
-                        {productList && productList.map((v, i) => {
-                            if(i <= 0) return;
-                            return (
-                                <List.Item
-                                    className='el-pro-list'
-                                    title={v.name}
-                                    media={<img src={'//static.sztoda.com/' + v.imgSmall} />}
-                                    subTitle={
-                                        <div>
-                                            ￥<span className='li-color-highlight'>{v.price}</span>起
-                                        </div>
-                                    }
-                                    href={v.gotoUrl}
-                                    key={i}
-                                />
-                            );
-                        })}
-                    </List>
-                </Group>
+                <div className='m-avatar' style={{height: avaterHeight +'px'}}>
+                    <img src="/api/static/img/logo.png" className="el-headimg" style={{height: avaterHeight*0.6 + 'px', width: avaterHeight*0.6 + 'px'}} />
+                    <p>{this.state.data.nickName}</p>
+                </div>
+                <List>
+                    <List.Item href="shop" after="查看全部" title="我的保单" />
+                </List>
+                <Grid className='li-align-center'>
+                    <Col>
+                        <img src="/api/static/img/wait.png" className="el-bdimg"/>
+                        <p>待支付</p>
+                    </Col>
+                    <Col>
+                        <img src="/api/static/img/work.png" className="el-bdimg"/>
+                        <p>已生效</p>
+                    </Col>
+                    <Col>
+                        <img src="/api/static/img/finish.png" className="el-bdimg"/>
+                        <p>已终止</p>
+                    </Col>
+                </Grid>
             </Container>
         )
     }
 
     componentDidMount() {
-        ShopAction.bannerList();
-        ShopAction.productList();
 
-        ShopStore.bind("change",function(){
+        UserCenterStore.bind("change",function(){
             this.setState({
                 data: ShopStore.getAll()
             })

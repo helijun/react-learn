@@ -4,11 +4,8 @@ import LI from '../../../plugin/li/li-1.0.0.js';
 
 const ShopStore = {
 	_state: {
-        shopTitle: '特惠产品',
-        bannerList: [],
-        productList: [],
-        WillMount: true,        
-		phone: '188'
+        width: LI.screenWidth(),
+        nickName: '17603001616'
 	},
 	getAll(){
         return this._state;

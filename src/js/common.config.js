@@ -13,3 +13,13 @@ export Col from '../plugin/amazeui-touch/lib/Col';
 export Group from '../plugin/amazeui-touch/lib/Group';
 export Button from '../plugin/amazeui-touch/lib/Button';
 export Slider from '../plugin/amazeui-touch/lib/Slider';
+export View from '../plugin/amazeui-touch/lib/View';
+export NavBar from '../plugin/amazeui-touch/lib/NavBar';
+
+const ViewNavConfig = {
+    shop: {
+        isShow: true,
+        title: '保险集市'
+    }
+}
+export default ViewNavConfig;
