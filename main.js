@@ -11,10 +11,10 @@ import Header from './src/js/danong/header/header';
 import * as Pages from './src/js/router.config';
 
 import { 
-    ViewNavConfig, 
     NavBar, 
     Container 
 } from './src/js/common.config';
+import ViewInfoConfig from './src/js/view.info.config';
 
 import './src/plugin/amazeui-touch/scss/amazeui.touch.scss';
 import './src/plugin/li/li-1.2.0.scss';
@@ -22,6 +22,7 @@ import './src/scss/common.scss';
 
 let {
     NotFound,
+    Index,
     ...Components
 } = Pages;
 
@@ -52,24 +53,63 @@ class Page extends React.Component {
 
     render() {
         let componentName = this.props.params.componentName;
-        console.log('ViewNavConfig', ViewNavConfig)
+        let viewInfo = ViewInfoConfig[componentName];
+        console.log('ViewInfoConfig', viewInfo)
+       
+        let headerData = {
+            title: viewInfo.header.title || '',
+            leftNav: viewInfo.header.leftShow? [
+                { 
+                    title: viewInfo.header.leftTxt || '返回', 
+                    icon: viewInfo.header.leftIcon || 'left-nav' 
+                }
+            ] : [],
+            rightNav: viewInfo.header.rightShow? [
+                { 
+                    icon: viewInfo.header.rightIcon || 'bars' 
+                }
+            ] : [],
+            onAction: this.clickHandler,
+        };
+
+
         if(componentName){
             componentName = componentName.charAt(0).toUpperCase() + componentName.slice(1);
         }
         let Component = Components[componentName] || NotFound;
         
-        const navData = {
-            title: componentName,
-            leftNav: [{ title: '返回', icon: 'left-nav' }],
-            rightNav: [{icon: 'bars'}],
-            onAction: this.clickHandler,
-        };
 
         return (
             <Container >
-                <NavBar {...navData} />
+                {viewInfo.header.isShow && <NavBar {...headerData} />}
                 <Component scrollable history={this.props.history} location={this.props.location}/>
             </Container >
+        )
+    }
+}
+
+class App extends React.Component {
+    constructor(){
+        super();
+        this.state = {
+            data: {}
+        };
+    }
+
+    render() {
+        let {
+            location,
+            params,
+            children,
+            ...props
+            } = this.props;
+
+        return (
+            <Container direction="column">
+                <Container fill={true}>
+                    {React.cloneElement(children, {key: location.key, params: params, location: location})}
+                </Container>
+            </Container>
         )
     }
 }
@@ -77,7 +117,10 @@ class Page extends React.Component {
 document.addEventListener('DOMContentLoaded', function () {
     ReactDOM.render(
         <Router history={hashHistory}>
-            <Route path=":componentName" component={Page} onEnter={handleOnEnter}/>
+            <Route path="/" component={App}>
+                <IndexRoute component={Index}/>
+                <Route path=":componentName" component={Page} onEnter={handleOnEnter}/>
+            </Route>
         </Router>
         , document.getElementById('root'));
 })

@@ -15,11 +15,7 @@ export Button from '../plugin/amazeui-touch/lib/Button';
 export Slider from '../plugin/amazeui-touch/lib/Slider';
 export View from '../plugin/amazeui-touch/lib/View';
 export NavBar from '../plugin/amazeui-touch/lib/NavBar';
+export Field from '../plugin/amazeui-touch/lib/Field';
+export Icon from '../plugin/amazeui-touch/lib/Icon';
 
-const ViewNavConfig = {
-    shop: {
-        isShow: true,
-        title: '保险集市'
-    }
-}
-export default ViewNavConfig;
+
