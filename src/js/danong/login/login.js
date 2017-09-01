@@ -92,11 +92,7 @@ class Header extends React.Component {
                     <a href="#" class="li-btn-wraning" id="registerBtn">立即注册</a>
                 </div>
 
-                <Field
-            placeholder="Your email."
-            labelBefore={<Icon name="person" />}
-            btnAfter={<Button>Subscribe</Button>}
-          />
+                
                 {/* {fields.map((field, i) => {
                     return (
                         <List.Item
