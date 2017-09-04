@@ -4,13 +4,12 @@ import {
     LI
 }  from '../../common.config';
 
-const ShopStore = {
+const LoginStore = {
 	_state: {
-        shopTitle: '特惠产品',
-        bannerList: [],
-        productList: [],
-        WillMount: true,        
-		phone: '188'
+        codeClass: 'li-btn-code',
+        active: false,//获取验证码按钮不可以点击
+        time: 59,
+        codeText: '获取验证码'
 	},
 	getAll(){
         return this._state;
@@ -20,43 +19,54 @@ const ShopStore = {
     },
     clearAll(){
         this._state = {};
+    },
+    timer() {
+        let timer = setInterval(()=> {
+            this._state.time --;
+            this._state.codeText = this._state.time + 's';
+            
+            if(this._state.time == 0){
+                clearInterval(timer);
+                this.updateAll({
+                    active: true,
+                    time: 59,
+                    codeClass: 'li-btn-code-active',
+                    codeText: '重新获取'
+                })
+            }
+            this.trigger('change');
+        }, 1000)
     }
 };
-Event.mixin(ShopStore);
+Event.mixin(LoginStore);
 
 appDispatcher.register(function(payload){
+    let data = LoginStore.getAll();
 	switch(payload.actionName){
-		case 'get-banner-list': 
-            LI.ajax({
-                url: "/api/app/banner-list",
-                success: function(data) {
-                    if(typeof data == 'string'){
-                        data = JSON.parse(data)
-                    }
-                    
-                    ShopStore.updateAll({
-                        bannerList: data.detail
-                    });
-                    ShopStore.trigger("change");
-                } 
+		case 'toggle-code-class': 
+            LoginStore.updateAll({
+                active: false,
+                codeClass: 'li-btn-code',
+                codeText: data.time + 's'
             })
+            LoginStore.timer()
+            LoginStore.trigger('change')
             break;
-        case 'get-product-list':
-            LI.ajax({
-                url: "/api/insurance/get-insurance-list",
-                success: function(data) {
-                    if(typeof data == 'string'){
-                        data = JSON.parse(data)
-                    }
-                    
-                    ShopStore.updateAll({
-                        productList: data.detail
-                    });
-                    ShopStore.trigger("change");
-                } 
-            })
-            break;    
-            
+        
+        case 'change-phone-input': 
+            if(payload.data.phoneLength == 11){
+                LoginStore.updateAll({
+                    active: true,
+                    codeClass: 'li-btn-code-active'
+                })
+            }else{
+                LoginStore.updateAll({
+                    active: false,
+                    codeClass: 'li-btn-code'
+                })
+            }
+            LoginStore.trigger('change')
+            break;
 	}
 })
-export default ShopStore;
+export default LoginStore;

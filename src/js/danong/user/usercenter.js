@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, Lifecycle } from 'react-router';
 
 import UserCenterAction from './usercenterAction';
 import UserCenterStore from './usercenterStore';
@@ -19,7 +19,9 @@ import {
 class App extends React.Component {
     constructor(){
         super();
+
         this.state = {
+            mixins: [ Lifecycle ],        
             data: UserCenterStore.getAll()
         };
     }
@@ -27,6 +29,12 @@ class App extends React.Component {
     onAction(index, direction) {
         //console.log('激活的幻灯片编号：', index, '，滚动方向：', direction);
     }
+
+    routerWillLeave(nextLocation) {
+        if (!this.state.isSaved)
+            return 'Your work is not saved! Are you sure you want to leave?'
+    }
+    
 
     render() {
         let data = this.state.data;

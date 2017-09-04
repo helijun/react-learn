@@ -4,7 +4,7 @@
  * git https://github.com/helijun/li
  */
  
-$html-fontsize: 20px;
+$html-fontsize: 14px;
 $body-fontsize: 16px;
 
 $success-color: #09bb07;
@@ -37,7 +37,7 @@ body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legen
 
 
 /** 标签样式 start */
-/* html {
+html {
     font-size: $html-fontsize;
 }
 body {

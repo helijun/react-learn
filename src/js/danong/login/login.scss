@@ -1,74 +1,12 @@
 $sliderHeight: 118px;
 $leftImgHw: 60px;
 
-.component-shop {
-    .m-slider {
-        max-height: $sliderHeight;
-        min-height: $sliderHeight;
-        overflow: hidden;
+.component-login {
+    .li-icon-tel:before,
+    .li-icon-yanzhengma:before,
+    .li-icon-password:before {
+        height: 2.98rem;
+        line-height: 2.98rem;
+        font-size: 1.8rem;
     }
-    .group {
-        margin: 0.875rem 0;
-        .group-body {
-            padding: .1rem;
-        }
-    }
-    .li-text-normal {
-        color: black;
-    }
-    .m-pro {
-        padding: 0;
-        margin: 0;
-        .el-pro-list {
-            .item-media {
-                width: $leftImgHw;
-                height: $leftImgHw;
-                line-height: $leftImgHw;
-            }
-        }
-    }
-}
-
-/** 字体图标 */
-@font-face {font-family: "insuranceShop";
-    src: url('/api/static/font/insurance/insuranceShop.eot?t=1474266198'); /* IE9*/
-    src: url('/api/static/font/insurance/insuranceShop.eot?t=1474266198#iefix') format('embedded-opentype'), /* IE6-IE8 */
-    url('/api/static/font/insurance/insuranceShop.woff?t=1474266198') format('woff'), /* chrome, firefox */
-    url('/api/static/font/insurance/insuranceShop.ttf?t=1474266198') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
-    url('/api/static/font/insurance/insuranceShop.svg?t=1474266198#iconfont') format('svg'); /* iOS 4.1- */
-  }
-
-  .icon-xiazai,.icon-gerenzhongxin,.icon-index-copy,.icon-gerenzhongxin2,.icon-gerenzhongxin1,.icon-che,.icon-fudai,.icon-houtui {
-    font-family:"insuranceShop" !important;
-    font-size:16px;
-    font-style:normal;
-    -webkit-font-smoothing: antialiased;
-    -webkit-text-stroke-width: 0.2px;
-    -moz-osx-font-smoothing: grayscale;
-  }
-  .icon-houtui:before { content: "\e61d"; }
-  .icon-fudai:before { content: "\e629"; }
-  .icon-che:before { content: "\e60b"; }
-  .icon-gerenzhongxin1:before { content: "\e607"; }
-  .icon-xiazai:before { content: "\e60a"; }
-  .icon-gerenzhongxin2:before { content: "\e60f"; }
-  .icon-index-copy:before { content: "\e600"; }
-  .icon-che {
-    color: #10aeff;
-    font-size: 20px;
-}
-
-.icon-gerenzhongxin2 {
-    color: white;
-    font-size: 20px;
-    margin-right: 0.8em;
-}
-.icon-gerenzhongxin1 {
-    color: #f76260;
-    font-size: 20px;
-    margin-right: 0;
-}
-.redfont{
-    color: #f76260;
-    font-size: 16px;
 }

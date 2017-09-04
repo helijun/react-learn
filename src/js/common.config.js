@@ -3,6 +3,10 @@ export Event from '../util/Event.js';
 export appDispatcher from './dispatcher/dispatcher.js';
 export LI from '../plugin/li/li-1.0.0.js';
 
+/**自定义组件 */
+export LI_Input from '../component/form/input.js';
+export LI_Button from '../component/form/button.js';
+
 /** UI相关组件 */
 export Container from '../plugin/amazeui-touch/lib/Container';
 export Notification from '../plugin/amazeui-touch/lib/Notification';

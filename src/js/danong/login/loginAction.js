@@ -2,17 +2,20 @@ import {
     appDispatcher
 }  from '../../common.config';
 
-const ShopAction = {
-	getBannerList() {
+const LoginAction = {
+	toggleCodeClass() {
 		appDispatcher.dispatch({
-            actionName: "get-banner-list"
-        })
+            actionName: "toggle-code-class"
+		})
 	},
-	getProductList() {
+	changePhoneInput(phoneLength) {
 		appDispatcher.dispatch({
-			actionName: 'get-product-list'
+			actionName: "change-phone-input",
+			data: {
+				phoneLength: phoneLength
+			}
 		})
 	}
 }
 
-export default ShopAction;
+export default LoginAction;
