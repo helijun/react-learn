@@ -7,6 +7,7 @@ import './login.scss';
 import {
     LI_Input,
     LI_Button,
+    LI_Tips,
     Container
 } from '../../common.config';
 
@@ -33,15 +34,22 @@ class Login extends React.Component {
     }
 
     doRegist() {
-        console.log('doRegist')
+        loginAction.doRegist();
+    }
+
+    tipsHide() {
+        console.log('tipsHide')
     }
 
     render() {
         let { 
             codeClass,
-            codeText
-         } = this.state.data;
+            codeText,
+            tipsText,
+            tipsShow
+        } = this.state.data;
 
+        console.log('渲染',this.state)
         return (
             <Container
                 scrollable={true}
@@ -82,6 +90,14 @@ class Login extends React.Component {
                     className='li-btn-submit' 
                     text='立即注册' 
                     click={this.doRegist}
+                />
+
+                <LI_Tips
+                    text={tipsText}
+                    isShow={tipsShow}
+                    callback={this.tipsHide}
+                    time={3000}
+                    top={60}
                 />
             </Container>
         )

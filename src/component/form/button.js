@@ -20,7 +20,6 @@ class Button extends React.Component {
             text,
             id
         } = this.props;
-        console.log('this.props', this.props)
         return(
             <div className='component-form-button'>
                 <div 

@@ -15,6 +15,11 @@ const LoginAction = {
 				phoneLength: phoneLength
 			}
 		})
+	},
+	doRegist() {
+		appDispatcher.dispatch({
+			actionName: "do-regist"
+		})
 	}
 }
 

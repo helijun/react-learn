@@ -9,7 +9,9 @@ const LoginStore = {
         codeClass: 'li-btn-code',
         active: false,//获取验证码按钮不可以点击
         time: 59,
-        codeText: '获取验证码'
+        codeText: '获取验证码',
+        tipsText: '请输入手机号码',
+        tipsShow: false
 	},
 	getAll(){
         return this._state;
@@ -65,6 +67,13 @@ appDispatcher.register(function(payload){
                     codeClass: 'li-btn-code'
                 })
             }
+            LoginStore.trigger('change')
+            break;
+        
+        case 'do-regist': 
+            LoginStore.updateAll({
+                tipsShow: true
+            })
             LoginStore.trigger('change')
             break;
 	}
