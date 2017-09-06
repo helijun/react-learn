@@ -3,7 +3,8 @@ let ViewInfoConfig = {
     login: {
         header: {
             isShow: true,
-            title: '欢迎登录'
+            title: '欢迎登录',
+            rightShow: true
         }
     },
     shop: {

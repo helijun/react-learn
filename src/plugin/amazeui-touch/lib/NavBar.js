@@ -40,7 +40,8 @@ var NavBar = _react2.default.createClass({
     leftNav: _react.PropTypes.array,
     rightNav: _react.PropTypes.array,
     titleOnLeft: _react.PropTypes.bool,
-    onAction: _react.PropTypes.func
+    onAction: _react.PropTypes.func,
+    changeCanvasActive: _react.PropTypes.func
   },
 
   getDefaultProps: function getDefaultProps() {

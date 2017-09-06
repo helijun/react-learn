@@ -29,7 +29,6 @@ class Shop extends React.Component {
     }
 
     render() {
-        console.log('render this.state', this.state)
         let { 
             bannerList,
             productList,

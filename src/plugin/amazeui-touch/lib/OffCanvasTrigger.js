@@ -48,6 +48,7 @@ var OffCanvasTrigger = _react2.default.createClass({
   },
 
   getDefaultProps: function getDefaultProps() {
+    console.log('propTypes', this.propTypes);
     return {
       placement: 'left',
       animation: 'slide',
@@ -175,6 +176,12 @@ var OffCanvasTrigger = _react2.default.createClass({
       onDismiss: this.close
     });
   },
+
+  componentWillReceiveProps: function(nextProps){
+    console.log('componentWillReceiveProps',nextProps)
+      this.state.offCanvasActive = nextProps.defaultOffCanvasActive
+  },
+
   render: function render() {
     var child = _react2.default.Children.only(this.props.children);
     var props = {

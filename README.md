@@ -59,3 +59,7 @@ start nginx.exe
 
 > 2017-09-05
 1. 完成tips自定义组件开发
+
+> 2017-09-06
+1. 阅读并修改部分amazeui NavBar，OffCanvasTrigger源码，深入理解子组件向父组件传值
+2. 完成侧边栏组件集成

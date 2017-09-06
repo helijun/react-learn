@@ -97,7 +97,7 @@ class Login extends React.Component {
                     isShow={tipsShow}
                     callback={this.tipsHide}
                     time={3000}
-                    top={60}
+                    top={20}
                 />
             </Container>
         )

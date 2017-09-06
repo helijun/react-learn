@@ -7,12 +7,15 @@ import {
     hashHistory,
     IndexRoute,
 } from 'react-router';
-import Header from './src/js/danong/header/header';
 import * as Pages from './src/js/router.config';
 
 import { 
     NavBar, 
-    Container 
+    Container,
+    OffCanvas,
+    OffCanvasTrigger,
+    Button,
+    List
 } from './src/js/common.config';
 import ViewInfoConfig from './src/js/view.info.config';
 
@@ -35,19 +38,22 @@ class Page extends React.Component {
     constructor(){
         super();
         this.state = {
-            data: {}
+            defaultOffCanvasActive: false
         };
     }
 
+    changeCanvasActive() {
+        this.setState({
+            defaultOffCanvasActive: true
+        })
+    }
+    
     clickHandler(data, event) {
-        console.log('clickHandler data', data)
-        console.log('clickHandler event', event)
-        
         if(data.icon === 'left-nav'){
             event.preventDefault();
             window.history.back();
         }else{
-            console.log('菜单')
+            this.props['data-changeCanvasActive']()
         }
     }
 
@@ -69,21 +75,27 @@ class Page extends React.Component {
                     icon: viewInfo.header.rightIcon || 'bars' 
                 }
             ] : [],
-            onAction: this.clickHandler,
+            onAction: this.clickHandler
         };
-
 
         if(componentName){
             componentName = componentName.charAt(0).toUpperCase() + componentName.slice(1);
         }
         let Component = Components[componentName] || NotFound;
-        
 
         return (
             <Container >
-                {viewInfo.header.isShow && <NavBar {...headerData} />}
+                {viewInfo.header.isShow && <NavBar {...headerData} data-changeCanvasActive={this.changeCanvasActive.bind(this)}/>}
+                <OffCanvasTrigger
+                    placement="right"
+                    offCanvas={<OffCanvas>内容</OffCanvas>}
+                    defaultOffCanvasActive={this.state.defaultOffCanvasActive}
+                >
+                    <div></div>
+                </OffCanvasTrigger>    
                 <Component scrollable history={this.props.history} location={this.props.location}/>
             </Container >
+            
         )
     }
 }

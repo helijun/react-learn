@@ -1,6 +1,7 @@
 .component-tips {
     position: fixed;
-    top: 50%;
+    z-index: 999;
+    top: 30%;
     right: 0;
     left: 0;
     display: block;

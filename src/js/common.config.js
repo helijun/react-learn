@@ -22,5 +22,8 @@ export View from '../plugin/amazeui-touch/lib/View';
 export NavBar from '../plugin/amazeui-touch/lib/NavBar';
 export Field from '../plugin/amazeui-touch/lib/Field';
 export Icon from '../plugin/amazeui-touch/lib/Icon';
+export OffCanvasTrigger from '../plugin/amazeui-touch/lib/OffCanvasTrigger';
+export OffCanvas from '../plugin/amazeui-touch/lib/OffCanvas';
+
 
 
