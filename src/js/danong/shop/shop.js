@@ -5,6 +5,8 @@ import ShopAction from './shopAction';
 import ShopStore from './shopStore';
 import './shop.scss';
 import {
+    URL,
+    LI_Loading,
     Container,
     Notification,
     List,
@@ -30,6 +32,7 @@ class Shop extends React.Component {
 
     render() {
         let { 
+            loadingShow,
             bannerList,
             productList,
             shopTitle
@@ -61,7 +64,7 @@ class Shop extends React.Component {
                         align='around'
                     >
                         <Col className='li-align-center'>
-                            <Link href={'/api/carInsurance/index?productId=1'}>
+                            <Link href={URL.H5 + '/carInsurance/index?productId=1'}>
                                 <i className='icon-che'></i>
                                 <p className='li-text-normal'>车险询价</p>
                             </Link>    
@@ -98,6 +101,10 @@ class Shop extends React.Component {
                         })}
                     </List>
                 </Group>
+                
+                <LI_Loading
+                    isShow={loadingShow}
+                />
             </Container>
         )
     }

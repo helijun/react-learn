@@ -21,27 +21,25 @@ class Login extends React.Component {
     }
     
     changePhone(event) {
-        loginAction.changePhoneInput(event.target.value);
-    }
-
-    changeCodeInput(event) {
-        loginAction.changeCodeInput(event.target.value);
+        loginAction.changePhoneInput(event.target.value.length);
     }
 
     getCode(event) {
         console.log('this',loginStore.getAll().active)
         if(!loginStore.getAll().active) return;
-        loginAction.getCode()
+        loginAction.toggleCodeClass()
+    }
+
+    clickEyes() {
+        console.log('eysClick')
     }
 
     doRegist() {
-        if(loginStore.getAll().loginBtnHL){
-            loginAction.doLogin();
-        }
+        loginAction.doRegist();
     }
 
     tipsHide() {
-        loginAction.hideTips();
+        console.log('tipsHide')
     }
 
     render() {
@@ -53,6 +51,7 @@ class Login extends React.Component {
             tipsShow
         } = this.state.data;
 
+        console.log('渲染',this.state)
         return (
             <Container
                 scrollable={true}
@@ -63,7 +62,7 @@ class Login extends React.Component {
                     iconAlign='li-align-center' 
                     iconClass='li-icon-tel' 
                     placeholder='请输入您的手机号'
-                    type='tel'
+                    type='text'
                     id='mobilePhone'
                     onChange={this.changePhone}
                 />
@@ -77,13 +76,21 @@ class Login extends React.Component {
                     endBtnClass={codeClass}
                     endBtnText={codeText}
                     endBtnId='getCode'
-                    onChange={this.changeCodeInput}
                 />
-                
+                <LI_Input 
+                    iconAlign='li-align-center' 
+                    iconClass='li-icon-password' 
+                    placeholder='6-16的数字和字母的组合密码'
+                    type='text'
+                    colEnd='icon'
+                    colEndClick={this.clickEyes}
+                    endIconClass='li-icon-yanjing'
+                />
                 <br/>
+                <p className='li-align-center'>注意：验证成功后手机号无法修改，请如实填写</p>
                 <LI_Button 
                     className='li-btn-submit' 
-                    text='立即登录' 
+                    text='立即注册' 
                     click={this.doRegist}
                 />
 
@@ -103,6 +110,7 @@ class Login extends React.Component {
             this.setState({
                 data: loginStore.getAll()
             })
+            console.log('触发change',this.state)
         }.bind(this));
     }
 

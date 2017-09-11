@@ -1,0 +1,28 @@
+.component-sidebar {
+    background-image: url('/dn/static/img/common/nav-right-bg.jpg');
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    color: white;
+    .m-sidebar-list {
+        padding-top: 4rem;
+    }
+    .m-sidebar-group {
+        padding-top: 16rem;
+    }
+    .group-body {
+        background: none;
+        text-align: center;
+        img {
+            height: 120px;
+            margin-bottom: .2rem;
+        }
+    }
+    ul.list {
+        background: none;
+        color: white;
+    }
+    .item-title {
+        color: white;
+    }
+}

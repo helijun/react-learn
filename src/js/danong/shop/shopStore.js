@@ -1,4 +1,5 @@
 import {
+    URL,
     Event,
     appDispatcher,
     LI
@@ -6,6 +7,7 @@ import {
 
 const ShopStore = {
 	_state: {
+        loadingShow: true,
         shopTitle: '特惠产品',
         bannerList: [],
         productList: [],
@@ -28,7 +30,7 @@ appDispatcher.register(function(payload){
 	switch(payload.actionName){
 		case 'get-banner-list': 
             LI.ajax({
-                url: "/api/app/banner-list",
+                url: URL.H5 + "/app/banner-list",
                 success: function(data) {
                     if(typeof data == 'string'){
                         data = JSON.parse(data)
@@ -43,13 +45,14 @@ appDispatcher.register(function(payload){
             break;
         case 'get-product-list':
             LI.ajax({
-                url: "/api/insurance/get-insurance-list",
+                url: URL.H5 + "/insurance/get-insurance-list",
                 success: function(data) {
                     if(typeof data == 'string'){
                         data = JSON.parse(data)
                     }
                     
                     ShopStore.updateAll({
+                        loadingShow: false,
                         productList: data.detail
                     });
                     ShopStore.trigger("change");

@@ -3,22 +3,35 @@ import {
 }  from '../../common.config';
 
 const LoginAction = {
-	toggleCodeClass() {
+	getCode() {
 		appDispatcher.dispatch({
-            actionName: "toggle-code-class"
+            actionName: "login-get-code"
 		})
 	},
-	changePhoneInput(phoneLength) {
+	hideTips() {
 		appDispatcher.dispatch({
-			actionName: "change-phone-input",
+            actionName: "login-hide-tips"
+		})
+	},
+	changePhoneInput(phone) {
+		appDispatcher.dispatch({
+			actionName: "login-change-phone-input",
 			data: {
-				phoneLength: phoneLength
+				phone: phone
 			}
 		})
 	},
-	doRegist() {
+	changeCodeInput(code) {
 		appDispatcher.dispatch({
-			actionName: "do-regist"
+			actionName: "login-change-code-input",
+			data: {
+				code: code
+			}
+		})
+	},
+	doLogin() {
+		appDispatcher.dispatch({
+			actionName: "login-do-login"
 		})
 	}
 }

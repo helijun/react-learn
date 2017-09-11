@@ -18,7 +18,7 @@ import {
     List
 } from './src/js/common.config';
 import ViewInfoConfig from './src/js/view.info.config';
-
+import SideBar from './src/js/danong/sidebar/sidebar';
 import './src/plugin/amazeui-touch/scss/amazeui.touch.scss';
 import './src/plugin/li/li-1.2.0.scss';
 import './src/scss/common.scss';
@@ -88,7 +88,7 @@ class Page extends React.Component {
                 {viewInfo.header.isShow && <NavBar {...headerData} data-changeCanvasActive={this.changeCanvasActive.bind(this)}/>}
                 <OffCanvasTrigger
                     placement="right"
-                    offCanvas={<OffCanvas>内容</OffCanvas>}
+                    offCanvas={<OffCanvas><SideBar/></OffCanvas>}
                     defaultOffCanvasActive={this.state.defaultOffCanvasActive}
                 >
                     <div></div>

@@ -1,3 +1,9 @@
+let URL = {
+    H5: '/dn',
+    API: '/dnapi'
+}
+export {URL};
+
 /** 插件相关组件 */
 export Event from '../util/Event.js';
 export appDispatcher from './dispatcher/dispatcher.js';
@@ -7,6 +13,7 @@ export LI from '../plugin/li/li-1.0.0.js';
 export LI_Input from '../component/form/input.js';
 export LI_Button from '../component/form/button.js';
 export LI_Tips from '../component/tips/tips.js';
+export LI_Loading from '../component/loading/loading.js';
 
 /** UI相关组件 */
 export Container from '../plugin/amazeui-touch/lib/Container';

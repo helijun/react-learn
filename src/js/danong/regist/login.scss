@@ -1,0 +1,12 @@
+$sliderHeight: 118px;
+$leftImgHw: 60px;
+
+.component-login {
+    .li-icon-tel:before,
+    .li-icon-yanzhengma:before,
+    .li-icon-password:before {
+        height: 2.98rem;
+        line-height: 2.98rem;
+        font-size: 1.8rem;
+    }
+}
