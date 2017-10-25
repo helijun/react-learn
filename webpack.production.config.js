@@ -40,7 +40,11 @@ module.exports = {
                               "transform-object-rest-spread",
                               "transform-react-jsx",
                               "transform-object-assign",
-                              "transform-flow-strip-types"
+                              "transform-flow-strip-types",
+                              ["import", {
+                                  style: 'css',  // 'less',
+                                  libraryName: 'antd-mobile',
+                              }]
                             ]
                 }
             },

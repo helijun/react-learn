@@ -108,6 +108,14 @@ const rootRoute = {
                         cb(null, require(PAGE_BASIC_PATH + "danong/shop/shop"));
                     })
                 }
+            },
+            {
+                path: 'carInsurance',
+                getComponent(nextState, cb) {
+                    require.ensure([], (require) => {
+                        cb(null, require(PAGE_BASIC_PATH + "danong/car/carInsurance"));
+                    })
+                }
             }
         ]
     }]

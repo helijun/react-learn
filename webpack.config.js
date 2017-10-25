@@ -1,4 +1,4 @@
-const autoprefixer=require("autoprefixer");
+const autoprefixer = require("autoprefixer");
 const AUTOPREFIXER_BROWSERS = [
     'ie_mob >= 10',
     'ff >= 40',
@@ -25,26 +25,30 @@ module.exports = {
                 test: /\.js$/, // babel 转换为兼容性的 js
                 exclude: /node_modules/,
                 loader: 'babel-loader',
-                query:{
-                    presets:["es2015","stage-0"],
-                    plugins:[
-                              "transform-object-rest-spread",
-                              "transform-react-jsx",
-                              "transform-object-assign",
-                              "transform-flow-strip-types"
-                            ]
+                query: {
+                    presets: ["es2015", "stage-0"],
+                    plugins: [
+                        "transform-object-rest-spread",
+                        "transform-react-jsx",
+                        "transform-object-assign",
+                        "transform-flow-strip-types",
+                        ["import", {
+                            style: 'css',  // 'less',
+                            libraryName: 'antd-mobile',
+                        }]
+                    ]
                 }
             },
             {
-                test:/\.css$/,
-                loader:"style-loader!css-loader!postcss-loader"
+                test: /\.css$/,
+                loader: "style-loader!css-loader!postcss-loader"
             },
             {
-                test:/\.scss$/,
-                loader:"style-loader!css-loader!postcss-loader!sass-loader"
+                test: /\.scss$/,
+                loader: "style-loader!css-loader!postcss-loader!sass-loader"
             }
         ]
     },
-    postcss: [ autoprefixer({ browsers: AUTOPREFIXER_BROWSERS }) ],//使用postcss的插件autoprefixer来给css属性添加浏览器前缀
+    postcss: [autoprefixer({ browsers: AUTOPREFIXER_BROWSERS })],//使用postcss的插件autoprefixer来给css属性添加浏览器前缀
     watch: true
 }

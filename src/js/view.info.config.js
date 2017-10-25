@@ -18,6 +18,17 @@ let ViewInfoConfig = {
 
         }
     },
+    carInsurance: {
+        header: {
+            isShow: true,
+            title: '车险购买',
+            leftShow: true,
+            rightShow: true
+        },
+        footer: {
+
+        }
+    },
     usercenter: {
         header: {
             isShow: false,

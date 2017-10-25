@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "deploy": "set NODE_ENV=production  && node --max_old_space_size=2048  node_modules/webpack/bin/webpack.js  --config webpack.production.config.js",
+    "build": "set NODE_ENV=production  && node --max_old_space_size=2048  node_modules/webpack/bin/webpack.js  --config webpack.production.config.js",
     "start": "webpack-dev-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -12,10 +12,12 @@
   "license": "ISC",
   "devDependencies": {
     "amazeui-touch": "^1.0.0",
+    "antd-mobile": "^2.0.0",
     "autoprefixer": "^6.7.7",
     "babel-core": "^6.7.6",
     "babel-eslint": "^6.0.2",
     "babel-loader": "^6.2.4",
+    "babel-plugin-import": "^1.6.2",
     "babel-plugin-syntax-flow": "^6.18.0",
     "babel-plugin-transform-flow-strip-types": "^6.18.0",
     "babel-plugin-transform-object-assign": "^6.5.0",
@@ -41,6 +43,7 @@
     "webpack-dev-server": "^1.16.5"
   },
   "dependencies": {
+    "antd-mobile": "^2.0.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1"
   }
