@@ -4,6 +4,7 @@ import {
     appDispatcher,
     LI
 }  from '../../common.config';
+import { hashHistory } from 'react-router'
 
 const LoginStore = {
 	_state: {
@@ -133,7 +134,8 @@ appDispatcher.register(function(payload){
                 success: function(json){
                     var data = JSON.parse(json.data);
                     if (data.type == 600){
-                        
+                        localStorage.setItem('dn_token', data.token);
+                        hashHistory.push('/usercenter')
                     } else {
                         LoginStore.updateAll({
                             tipsShow: true,

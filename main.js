@@ -5,7 +5,7 @@ import {
     Route,
     Link,
     hashHistory,
-    IndexRoute,
+    IndexRoute
 } from 'react-router';
 import * as Pages from './src/js/router.config';
 
@@ -60,7 +60,9 @@ class Page extends React.Component {
     render() {
         let componentName = this.props.params.componentName;
         let viewInfo = ViewInfoConfig[componentName];
-        console.log('ViewInfoConfig', viewInfo)
+        
+        console.log('ViewInfoConfig', ViewInfoConfig);
+        console.log('viewInfo', viewInfo);
        
         let headerData = {
             title: viewInfo.header.title || '',

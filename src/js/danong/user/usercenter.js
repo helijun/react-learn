@@ -82,4 +82,5 @@ class App extends React.Component {
     }
 }
 
-export default App
+module.exports = App
+//export default App

@@ -6,7 +6,7 @@ class NotFound extends React.Component {
     }
 
     render() {
-        const imgPath = '/src/img/danong/404.png';
+        const imgPath = '../../../src/img/danong/404.png';
         return(
             <div>
                 <img src={imgPath}/>

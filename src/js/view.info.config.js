@@ -23,6 +23,12 @@ let ViewInfoConfig = {
             isShow: false,
             title: '个人中心'
         }
+    },
+    notFound: {
+        header: {
+            isShow: false,
+            title: '找不到页面'
+        }
     }
 }
 export default ViewInfoConfig;
