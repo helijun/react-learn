@@ -1,55 +1,41 @@
 import React from 'react';
 import { Link } from 'react-router';
-import { Toast, WhiteSpace, WingBlank, Button } from 'antd-mobile';
+import { createForm } from 'rc-form';
+import {
+    URL
+}  from '../../common.config';
+
+import './carInsurance.scss';
+
+
 
 class CarInsurance extends React.Component {
-    
-    showToast() {
-        Toast.info('这是一个 toast 提示!!!', 1);
-      }
-      
-    showToastNoMask() {
-        Toast.info('无 mask 的 toast !!!', 2, null, false);
-      }
-      
-    successToast() {
-        Toast.success('加载成功', 100);
-      }
-      
-    failToast() {
-        Toast.fail('加载失败', 1);
-      }
-      
-    offline() {
-        Toast.offline('网络连接失败', 1);
-      }
-      
-    loadingToast() {
-        Toast.loading('加载中...', 1, () => {
-          console.log('加载完成!!!');
-        });
-      }
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            focused: false
+        };
+    }
 
     render() {
-        
-        return(
-            <WingBlank>
-                <WhiteSpace />
-                <Button onClick={this.showToast}>纯文字 toast</Button>
-                <WhiteSpace />
-                <Button onClick={this.showToastNoMask}>无 mask</Button>
-                <WhiteSpace />
-                <Button onClick={this.successToast}>成功 toast</Button>
-                <WhiteSpace />
-                <Button onClick={this.failToast}>失败 toast</Button>
-                <WhiteSpace />
-                <Button onClick={this.offline}>网络 toast</Button>
-                <WhiteSpace />
-                <Button onClick={this.loadingToast}>加载中 toast</Button>
-                <WhiteSpace />
-            </WingBlank>
+        return (
+            <div className="component-carInsurance btn-container">
+                <div className="banner">
+                    <img src={URL.H5 + '/static/img/newCopyright/01biaoti_ok.png'}/>
+                </div>
+                <div className="introduce">
+                    <p className="title">车险报价</p>
+                    <p className="sub-title">车主大福利，车险保费省20%，多家保险公司合作，给您最优惠的折扣，最靠谱的服务。</p>
+                </div>
+                <div className="content">
+                    <p className="title">完善信息、立即投保</p>
+                </div>
+            </div>
         )
     }
 }
 
-module.exports = CarInsurance
+module.exports = CarInsurance;
+
+
