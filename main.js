@@ -64,21 +64,24 @@ class Page extends React.Component {
         console.log('ViewInfoConfig', ViewInfoConfig);
         console.log('viewInfo', viewInfo);
        
-        let headerData = {
-            title: viewInfo.header.title || '',
-            leftNav: viewInfo.header.leftShow? [
-                { 
-                    title: viewInfo.header.leftTxt || '返回', 
-                    icon: viewInfo.header.leftIcon || 'left-nav' 
-                }
-            ] : [],
-            rightNav: viewInfo.header.rightShow? [
-                { 
-                    icon: viewInfo.header.rightIcon || 'bars' 
-                }
-            ] : [],
-            onAction: this.clickHandler
-        };
+        let headerData = {};
+        if(viewInfo){
+            headerData = {
+                title: viewInfo.header.title || '',
+                leftNav: viewInfo.header.leftShow? [
+                    { 
+                        title: viewInfo.header.leftTxt || '返回', 
+                        icon: viewInfo.header.leftIcon || 'left-nav' 
+                    }
+                ] : [],
+                rightNav: viewInfo.header.rightShow? [
+                    { 
+                        icon: viewInfo.header.rightIcon || 'bars' 
+                    }
+                ] : [],
+                onAction: this.clickHandler
+            };
+        }
 
         if(componentName){
             componentName = componentName.charAt(0).toUpperCase() + componentName.slice(1);
@@ -87,7 +90,7 @@ class Page extends React.Component {
 
         return (
             <Container >
-                {viewInfo.header.isShow && <NavBar {...headerData} data-changeCanvasActive={this.changeCanvasActive.bind(this)}/>}
+                {viewInfo && viewInfo.header && viewInfo.header.isShow && <NavBar {...headerData} data-changeCanvasActive={this.changeCanvasActive.bind(this)}/>}
                 <OffCanvasTrigger
                     placement="right"
                     offCanvas={<OffCanvas><SideBar/></OffCanvas>}

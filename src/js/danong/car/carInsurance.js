@@ -2,7 +2,10 @@ import React from 'react';
 import { Link } from 'react-router';
 import { createForm } from 'rc-form';
 import {
-    URL
+    URL,
+    Container,
+    Field,
+    Button
 }  from '../../common.config';
 
 import './carInsurance.scss';
@@ -30,6 +33,16 @@ class CarInsurance extends React.Component {
                 </div>
                 <div className="content">
                     <p className="title">完善信息、立即投保</p>
+                    <div className="form-set">
+                        <Field placeholder="投保城市" />
+                        <Field placeholder="上一年投保城市" />
+                    </div>
+                    <p class="explain-text">请选择以下任意一种方式提交车辆信息</p>
+                    <div className="form-button">
+                        <Button amStyle="primary" block>在线填写</Button>
+                        <Button amStyle="default" block>上传车主身份证、行驶证照片</Button>
+                        <Button amStyle="default" block>电话咨询</Button>
+                    </div>
                 </div>
             </div>
         )

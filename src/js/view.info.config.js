@@ -35,6 +35,14 @@ let ViewInfoConfig = {
             title: '个人中心'
         }
     },
+    userInfo: {
+        header: {
+            isShow: true,
+            title: '个人资料',
+            leftShow: true,
+            rightShow: true
+        }
+    },
     notFound: {
         header: {
             isShow: false,

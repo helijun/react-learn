@@ -64,7 +64,7 @@ class Shop extends React.Component {
                         align='around'
                     >
                         <Col className='li-align-center'>
-                            <Link href={URL.H5 + '/carInsurance/index?productId=1'}>
+                            <Link to={'/carInsurance'}>
                                 <i className='icon-che'></i>
                                 <p className='li-text-normal'>车险询价</p>
                             </Link>    
@@ -126,4 +126,4 @@ class Shop extends React.Component {
     }
 }
 
-export default Shop
+module.exports = Shop

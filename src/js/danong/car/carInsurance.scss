@@ -20,5 +20,23 @@
         .title {
             font-size: 1.263rem;
         }
+        .form-set {
+            box-sizing: border-box;
+            margin: 0 auto;
+            padding: 2rem 4rem;
+            border-radius: .42rem;
+
+            input {
+                margin-bottom: 1rem;
+                padding: 0.82rem 1.42rem;
+            }
+        }
+        .form-button {
+            box-sizing: border-box;
+            margin: 0 auto;
+            padding: 2rem 4rem;
+            border-radius: .42rem;
+        }
+        
     }
 }
